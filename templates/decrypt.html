@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decrypt File</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Decrypt a File</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-messages" style="background: #f8d7da; color: #721c24;">
+          {% for message in messages %}
+            <div>{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <form method="post">
+        <input type="text" name="filename" placeholder="example.vault" required>
+        <button type="submit">Decrypt</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Encrypt Page</a>
+</div>
+</body>
+</html>
